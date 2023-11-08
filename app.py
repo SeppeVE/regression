@@ -16,20 +16,17 @@ auto_mpg = fetch_ucirepo(id=9)
 X = auto_mpg.data.features
 y = auto_mpg.data.targets
 
-#Een functie om X en y te printen zodat het zichtbaar is wat er in het model zit
-if st.button('Print X'):
-    st.write(X[:10])
-
-if st.button('Print Y'):
-    st.write(y[:10])
 
 st.title("Cryptographic Puzzle")
 st.header("Challenge AI")
 
 st.text("Op deze pagina zul je zien hoe 3 verschillende regressie algorithmen de een voorspelling gaan maken over hoeveel mpg een auto zal hebben.")
 
-st.button("Print X", type="primary")
-st.button("Print Y", type="primary")
+if st.button('Print X'):
+    st.write(X[:10])
+
+if st.button('Print Y'):
+    st.write(y[:10])
 
 #X moet getransformeerd worden omdat er Nan waarden inzitten. Deze Nan waarden moeten ingevuld worden, dit wordt nu gedaan door de mediaan te nemen.
 imputer = SimpleImputer(strategy='mean')
