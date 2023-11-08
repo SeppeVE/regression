@@ -94,8 +94,12 @@ def poly(X,y):
     st.write("Polynominale Regressie",y_pred)
     st.write("Mean Squared Error: ", mse)
 
+col1, col2, col3 = st.columns(3)
 
 if st.button('Vergelijk'):
-    linear(X,y)
-    knn(X,y)
-    poly(X,y)
+    with col1:
+        linear(X,y)
+    with col2:
+        knn(X,y)
+    with col3:
+        poly(X,y)
