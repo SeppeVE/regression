@@ -23,10 +23,10 @@ st.header("Challenge AI")
 st.text("Op deze pagina zul je zien hoe 3 verschillende regressie algorithmen de een voorspelling gaan maken over hoeveel mpg een auto zal hebben.")
 
 if st.button('Print X'):
-    st.write(X[:10])
+    st.write(X)
 
 if st.button('Print Y'):
-    st.write(y[:10])
+    st.write(y)
 
 #X moet getransformeerd worden omdat er Nan waarden inzitten. Deze Nan waarden moeten ingevuld worden, dit wordt nu gedaan door de mediaan te nemen.
 imputer = SimpleImputer(strategy='mean')
@@ -51,10 +51,10 @@ if st.button('Lineare regressie'):
         predicted_values = model.predict(new_data)
 
 
-        st.write("Based on X: ",predictions)
-        st.write("Based on Toyota Celcica: ",predicted_values)
+        st.write("Voorspellingen op de originele X: ",predictions)
+        st.write("Voorspelingen op een Toyota Celica: ",predicted_values)
         st.write("https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133")
-        
+
     linear(X,y)
 
 def knn(X,y):
