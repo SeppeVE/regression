@@ -20,7 +20,11 @@ y = auto_mpg.data.targets
 st.title("Cryptographic Puzzle")
 st.header("Challenge AI")
 
-st.text("Op deze pagina zul je zien hoe 3 verschillende regressie algorithmen de een voorspelling gaan maken over hoeveel mpg een auto zal hebben.")
+multi = '''Op deze pagina zul je zien hoe 3 verschillende regressie algorithmen de een voorspelling
+gaan maken over hoeveel mpg een auto zal hebben.
+'''
+st.markdown(multi)
+
 
 st.write("X")
 st.write(X)
@@ -103,3 +107,8 @@ if st.button('Vergelijk'):
         knn(X,y)
     with col3:
         poly(X,y)
+    
+    multi = '''Het is duidelijk dat er op elk algorithme een verschil zit maar
+    het is niet omdat de mse lager is, dat alle voorspellingen correcter zullen zijn.
+    '''
+    st.markdown(multi)
