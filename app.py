@@ -19,11 +19,11 @@ y = auto_mpg.data.targets
 #Een functie om X en y te printen zodat het zichtbaar is wat er in het model zit
 def printX(X):
     
-    print(X)
+    st.write(X)
 
 def printY(y):
     
-    print(y)
+    st.write(y)
 
 st.title("Cryptographic Puzzle")
 st.header("Challenge AI")
