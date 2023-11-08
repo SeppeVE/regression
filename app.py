@@ -45,17 +45,12 @@ def linear(X,y):
     #Alle X rows worden nu gegeven om op te testen.
     predictions = model.predict(X)
 
-    #Data gebruikt van https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133 om een keer met een echt voorbeeld te testen
-    new_data = np.array([[97.7,4,105,2645.55,11,93,2]])
-    predicted_values = model.predict(new_data)
+    mse = mean_squared_error(y, predictions)
+
+    st.write("Lineare Regressie: ",predictions)
+    st.write("Mean Squared Error: ", mse)
 
 
-    st.write("Voorspellingen op de originele X: ",predictions)
-    st.write("Voorspelingen op een Toyota Celica: ",predicted_values)
-    st.write("https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133")
-
-if st.button('Lineare regressie'):
-    linear(X,y)
 
 def knn(X,y):
     #Maak training en test datasets van de data.
@@ -74,15 +69,11 @@ def knn(X,y):
     #Bekijk wat de waarde van de mean squared error is. Hierdoor krijgen we toch een idee met wat voor foutmarge we moeten rekening houden.
     mse = mean_squared_error(y_train, y_pred)
 
-    #Ook hier weer een extra test met echte data. Het is dezelfde als bij de lineare regressie dus kan er ook hierop vergeleken worden.
-    new_data = np.array([[97.7,4,105,2645.55,11,93,2]])
-    predicted_values = knn.predict(new_data)
     prediction = knn.predict(X_train)
 
     
-    print("Based on X: ", prediction)
-    print("Based on Toyota Celica: ", predicted_values)
-    print("Mean squared error:", mse)
+    st.write("K Nearest Neigbor: ", prediction)
+    st.write("Mean Squared Error: ", mse)
 
 def poly(X,y):
 
@@ -95,9 +86,16 @@ def poly(X,y):
     # Fit the model to the polynomial features
     model.fit(X_poly, y)
 
-    #new_data = np.array([[97.7, 4, 105, 2645.55, 11, 93, 2]])
-    #new_data_poly = poly_features.transform(new_data)
 
     y_pred = model.predict(X_poly)
 
-    print(y_pred)
+    mse = mean_squared_error(y, y_pred)
+
+    st.write("Polynominale Regressie",y_pred)
+    st.write("Mean Squared Error: ", mse)
+
+
+if st.button('Vergelijk'):
+    linear(X,y)
+    knn(X,y)
+    poly(X,y)
