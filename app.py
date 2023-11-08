@@ -32,29 +32,29 @@ if st.button('Print Y'):
 imputer = SimpleImputer(strategy='mean')
 X = imputer.fit_transform(X)
 
-if st.button('Lineare regressie'):
-    #De eerste functie is die van Lineare regressie.
+#De eerste functie is die van Lineare regressie.
     
-    def linear(X,y):
+def linear(X,y):
 
-        #Het model wordt gemaakt
-        model = LinearRegression()
+    #Het model wordt gemaakt
+    model = LinearRegression()
 
-        #Data wordt aan het model toegevoed. Als er eerde niet de Nan waarden waren vervangen had dit een error gegeven.
-        model.fit(X, y)
+    #Data wordt aan het model toegevoed. Als er eerde niet de Nan waarden waren vervangen had dit een error gegeven.
+    model.fit(X, y)
 
-        #Alle X rows worden nu gegeven om op te testen.
-        predictions = model.predict(X)
+    #Alle X rows worden nu gegeven om op te testen.
+    predictions = model.predict(X)
 
-        #Data gebruikt van https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133 om een keer met een echt voorbeeld te testen
-        new_data = np.array([[97.7,4,105,2645.55,11,93,2]])
-        predicted_values = model.predict(new_data)
+    #Data gebruikt van https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133 om een keer met een echt voorbeeld te testen
+    new_data = np.array([[97.7,4,105,2645.55,11,93,2]])
+    predicted_values = model.predict(new_data)
 
 
-        st.write("Voorspellingen op de originele X: ",predictions)
-        st.write("Voorspelingen op een Toyota Celica: ",predicted_values)
-        st.write("https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133")
+    st.write("Voorspellingen op de originele X: ",predictions)
+    st.write("Voorspelingen op een Toyota Celica: ",predicted_values)
+    st.write("https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133")
 
+if st.button('Lineare regressie'):
     linear(X,y)
 
 def knn(X,y):
