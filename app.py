@@ -32,25 +32,27 @@ if st.button('Print Y'):
 imputer = SimpleImputer(strategy='mean')
 X = imputer.fit_transform(X)
 
-#De eerste functie is die van Lineare regressie.
-def linear(X,y):
+if st.button('Lineare regressie'):
+    #De eerste functie is die van Lineare regressie.
+    def linear(X,y):
 
-    #Het model wordt gemaakt
-    model = LinearRegression()
+        #Het model wordt gemaakt
+        model = LinearRegression()
 
-    #Data wordt aan het model toegevoed. Als er eerde niet de Nan waarden waren vervangen had dit een error gegeven.
-    model.fit(X, y)
+        #Data wordt aan het model toegevoed. Als er eerde niet de Nan waarden waren vervangen had dit een error gegeven.
+        model.fit(X, y)
 
-    #Alle X rows worden nu gegeven om op te testen.
-    predictions = model.predict(X)
+        #Alle X rows worden nu gegeven om op te testen.
+        predictions = model.predict(X)
 
-    #Data gebruikt van https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133 om een keer met een echt voorbeeld te testen
-    new_data = np.array([[97.7,4,105,2645.55,11,93,2]])
-    predicted_values = model.predict(new_data)
+        #Data gebruikt van https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133 om een keer met een echt voorbeeld te testen
+        new_data = np.array([[97.7,4,105,2645.55,11,93,2]])
+        predicted_values = model.predict(new_data)
 
 
-    print("Based on X: ",predictions)
-    print("Based on Toyota Celcica: ",predicted_values)
+        st.write("Based on X: ",predictions)
+        st.write("Based on Toyota Celcica: ",predicted_values)
+        st.write("https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133")
 
 
 def knn(X,y):
