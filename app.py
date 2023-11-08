@@ -34,6 +34,7 @@ X = imputer.fit_transform(X)
 
 if st.button('Lineare regressie'):
     #De eerste functie is die van Lineare regressie.
+    
     def linear(X,y):
 
         #Het model wordt gemaakt
@@ -53,7 +54,8 @@ if st.button('Lineare regressie'):
         st.write("Based on X: ",predictions)
         st.write("Based on Toyota Celcica: ",predicted_values)
         st.write("https://www.auto-data.net/en/toyota-celica-t18-1.6-sti-105hp-3133")
-
+        
+    linear(X,y)
 
 def knn(X,y):
     #Maak training en test datasets van de data.
