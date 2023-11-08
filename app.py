@@ -28,7 +28,10 @@ def printY(y):
 st.title("Cryptographic Puzzle")
 st.header("Challenge AI")
 
-st.text("lorem")
+st.text("Op deze pagina zul je zien hoe 3 verschillende regressie algorithmen de een voorspelling gaan maken over hoeveel mpg een auto zal hebben.")
+
+st.button("Print X", type="primary", on_click=printX(X[:10]))
+st.button("Print Y", type="primary", on_click=printX(X[:10]))
 
 #X moet getransformeerd worden omdat er Nan waarden inzitten. Deze Nan waarden moeten ingevuld worden, dit wordt nu gedaan door de mediaan te nemen.
 imputer = SimpleImputer(strategy='mean')
